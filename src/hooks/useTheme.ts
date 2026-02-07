@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react'
 
 type Theme = 'light' | 'dark'
 
+function getInitialTheme(): Theme {
+  if (typeof window === 'undefined') return 'dark'
+  const saved = localStorage.getItem('theme')
+  if (saved === 'light' || saved === 'dark') return saved
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+}
+
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark'
-    const saved = localStorage.getItem('theme') as Theme | null
-    if (saved) return saved
-    return 'dark'
-  })
+  const [theme, setTheme] = useState<Theme>(getInitialTheme)
 
   useEffect(() => {
     const root = document.documentElement

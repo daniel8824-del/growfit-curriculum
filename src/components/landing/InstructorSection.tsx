@@ -13,7 +13,7 @@ const features = [
   {
     icon: Share2,
     title: '자료 배포',
-    desc: '템플릿, Few-shot, 에이전트를 코스에 한번에 공유합니다.',
+    desc: '템플릿, Few-shot, 에이전트를 코스에 한 번에 공유합니다.',
   },
   {
     icon: BarChart3,

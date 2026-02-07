@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { sessions } from '@/data/sessions'
 import { getSessionSlides } from '@/data/slides'
 import { SlideContainer } from '@/components/slides/SlideContainer'
@@ -9,15 +9,13 @@ export default function SlidePage() {
   const session = sessions.find((s) => s.slug === sessionSlug)
 
   if (!session) {
-    navigate('/curriculum', { replace: true })
-    return null
+    return <Navigate to="/curriculum" replace />
   }
 
   const slides = getSessionSlides(session.id)
 
   if (slides.length === 0) {
-    navigate(`/curriculum/${session.slug}`, { replace: true })
-    return null
+    return <Navigate to={`/curriculum/${session.slug}`} replace />
   }
 
   return (

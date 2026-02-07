@@ -16,7 +16,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['단일 모드', '비교 모드', '스타일 프리셋'],
     description:
       'AI와 LLM의 기본 개념을 이해하고, GrowFit 비교 모드로 GPT/Claude/Gemini 3모델을 직접 비교 체험합니다.',
-    slideCount: 12,
     learningOutcomes: ['LLM 3대 모델(GPT/Claude/Gemini)의 특성을 비교하고 상황에 맞는 모델을 선택할 수 있다', 'AI 실습 환경(GrowFit)의 단일 모드와 비교 모드를 자유롭게 활용할 수 있다', '스타일 프리셋의 개념을 이해하고 목적에 맞는 응답 톤을 설정할 수 있다'],
     prerequisites: [],
     competencyLayer: 'foundation',
@@ -206,7 +205,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['Advanced 파라미터', '비교 모드', 'Temperature 슬라이더'],
     description:
       'Temperature, Top P 등 파라미터를 슬라이더로 직접 조절하며 모델 출력의 변화를 관찰합니다.',
-    slideCount: 12,
     learningOutcomes: ['Temperature, Top-P, Max Tokens 등 핵심 파라미터의 역할을 이해하고 직접 조절할 수 있다', '파라미터 변화가 AI 응답에 미치는 영향을 실험으로 체감할 수 있다', '기본 프롬프트 구조(역할/맥락/지시/형식)를 작성할 수 있다'],
     prerequisites: [1],
     competencyLayer: 'foundation',
@@ -394,7 +392,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['시스템 프롬프트', '프롬프트 템플릿', '비교 모드'],
     description:
       'FREF 프레임워크를 배우고, 시스템 프롬프트와 프롬프트 템플릿을 만들어 저장합니다.',
-    slideCount: 12,
     learningOutcomes: ['Zero-shot, Few-shot, Chain-of-Thought 등 핵심 프롬프트 기법을 상황에 맞게 적용할 수 있다', '컨텍스트 엔지니어링의 개념을 이해하고 시스템 프롬프트를 체계적으로 설계할 수 있다', '프롬프트를 템플릿으로 저장하여 재사용 자산으로 만들 수 있다'],
     prerequisites: [1, 2],
     competencyLayer: 'foundation',
@@ -582,7 +579,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['Few-shot', '비교 모드', '시스템 프롬프트'],
     description:
       'Few-shot, CoT, ToT 등 고급 프롬프트 기법과 멀티 페르소나 전략을 실습합니다.',
-    slideCount: 12,
     learningOutcomes: ['복잡한 업무를 단계별로 분해하여 프롬프트 체인을 설계할 수 있다', 'Self-Ask, ReAct 등 고급 추론 기법을 업무에 적용할 수 있다', '컨텍스트 윈도우를 효율적으로 관리하는 전략을 수립할 수 있다'],
     prerequisites: [3],
     competencyLayer: 'application',
@@ -770,7 +766,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['템플릿', 'Few-shot', '비교 모드'],
     description:
       '사업계획서, 마케팅 카피, 코딩 등 실무 과제에 프롬프트를 적용합니다.',
-    slideCount: 12,
     learningOutcomes: ['PDF, 한글, Excel 등 문서를 AI에게 제공하여 요약·분석·QA를 수행할 수 있다', '문서 기반 프롬프트에서 컨텍스트 엔지니어링을 적용하여 정확도를 높일 수 있다', 'GrowFit 지식베이스에 문서를 업로드하고 RAG 기초를 체험할 수 있다'],
     prerequisites: [3, 4],
     competencyLayer: 'application',
@@ -958,7 +953,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['지식베이스', 'RAG 비교 모드', '고급 설정'],
     description:
       '문서 기반 AI를 구축하고, 청킹/임베딩/Top-K 파라미터를 실험합니다.',
-    slideCount: 12,
     learningOutcomes: ['임베딩과 벡터 유사도 검색의 원리를 이해하고 설명할 수 있다', '청킹 전략(고정 크기 vs 의미 기반)의 차이를 이해하고 상황에 맞게 선택할 수 있다', 'GrowFit 지식베이스의 파라미터(청크 사이즈, 오버랩, Top-K)를 조절하여 최적의 RAG를 설계할 수 있다'],
     prerequisites: [5],
     competencyLayer: 'application',
@@ -1141,7 +1135,6 @@ export const sessions: Session[] = [
     growfitFeatures: ['에이전트 빌더', '템플릿 에이전트', 'Published/Private'],
     description:
       'AI 에이전트를 기획하고, GrowFit 에이전트 빌더로 직접 만들어 배포합니다.',
-    slideCount: 12,
     learningOutcomes: ['AI 에이전트의 구성 요소(LLM + 도구 + 메모리)를 이해하고 설계할 수 있다', '컨텍스트 엔지니어링으로 에이전트의 시스템 프롬프트와 도구 설명을 체계적으로 작성할 수 있다', 'GrowFit 에이전트 빌더로 실제 동작하는 에이전트를 만들고 테스트할 수 있다'],
     prerequisites: [6],
     competencyLayer: 'mastery',
@@ -1338,7 +1331,6 @@ export const sessions: Session[] = [
     ],
     description:
       '40시간의 학습을 종합하여 나만의 AI 에이전트를 완성하고 발표합니다.',
-    slideCount: 10,
     learningOutcomes: ['1~7차시 내용을 종합하여 실무 AI 활용 프로젝트를 기획·실행할 수 있다', '에이전트 + RAG + 프롬프트 전략을 결합한 복합 솔루션을 설계할 수 있다', 'AI 활용 결과를 평가하고 개선 방안을 도출할 수 있다'],
     prerequisites: [7],
     competencyLayer: 'mastery',

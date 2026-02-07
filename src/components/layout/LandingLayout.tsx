@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import { useState } from 'react'
 import { Header } from './Header'
 import { Footer } from './Footer'
@@ -9,6 +9,7 @@ export function LandingLayout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollRestoration />
       <Header onSearchOpen={() => setSearchOpen(true)} />
       <main className="flex-1">
         <Outlet />

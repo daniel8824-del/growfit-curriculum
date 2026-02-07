@@ -44,16 +44,21 @@ export function DifferentiatorsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-2"
+          className="mt-8 flex overflow-x-auto no-scrollbar gap-2 pb-1 sm:mt-10 sm:flex-wrap sm:items-center sm:justify-center sm:overflow-visible sm:pb-0"
+          role="tablist"
+          aria-label="5가지 설계 원칙"
         >
           {differentiators.map((diff, i) => {
             const DIcon = iconMap[diff.icon] || GitCompareArrows
             return (
               <button
                 key={diff.id}
+                role="tab"
+                aria-selected={active === i}
+                aria-controls={`diff-panel-${diff.id}`}
                 onClick={() => setActive(i)}
                 className={cn(
-                  'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all',
+                  'flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-medium transition-all sm:gap-2 sm:px-4 sm:text-sm',
                   active === i
                     ? 'border-transparent text-white shadow-lg'
                     : 'bg-card/50 text-muted-foreground hover:text-foreground hover:border-border'
@@ -61,8 +66,7 @@ export function DifferentiatorsSection() {
                 style={active === i ? { backgroundColor: diff.color } : undefined}
               >
                 <DIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">{diff.title}</span>
-                <span className="sm:hidden">#{diff.id}</span>
+                {diff.title}
               </button>
             )
           })}
@@ -74,6 +78,9 @@ export function DifferentiatorsSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
+          role="tabpanel"
+          id={`diff-panel-${d.id}`}
+          aria-label={d.title}
           className="mt-8 rounded-2xl border bg-card p-4 sm:p-6 lg:p-8"
         >
           <div className="grid gap-6 lg:grid-cols-2">

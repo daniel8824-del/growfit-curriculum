@@ -1,15 +1,9 @@
-import { Clock, Users, ChevronRight } from 'lucide-react'
+import { Clock, Users } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { GrowFitBadge } from '@/components/common/GrowFitBadge'
 import { differentiators } from '@/data/differentiators'
 import type { Scenario } from '@/types'
-
-const levelLabels: Record<string, string> = { beginner: '초급', intermediate: '중급', advanced: '고급' }
-const levelColors: Record<string, string> = {
-  beginner: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
-  intermediate: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
-  advanced: 'bg-red-500/10 text-red-500 border-red-500/20',
-}
+import { levelLabels, levelColors } from '@/lib/scenario-utils'
 
 interface ScenarioCardProps {
   scenario: Scenario

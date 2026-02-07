@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import type { SlideData } from '@/types'
 
-export function TitleSlide({ slide, color }: { slide: SlideData; color?: string }) {
+export function TitleSlide({ slide }: { slide: SlideData }) {
   return (
     <div className="flex h-full flex-col items-center justify-center text-center px-8">
       <motion.div

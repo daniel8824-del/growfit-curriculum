@@ -14,7 +14,7 @@ interface SlideRendererProps {
 export function SlideRenderer({ slide, color }: SlideRendererProps) {
   switch (slide.type) {
     case 'title':
-      return <TitleSlide slide={slide} color={color} />
+      return <TitleSlide slide={slide} />
     case 'feature':
       return <FeatureSlide slide={slide} />
     case 'step':

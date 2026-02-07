@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -70,31 +70,7 @@
   --chart-5: oklch(0.65 0.2 16);
 }
 
-.dark {
-  --background: oklch(0.13 0.012 250);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.18 0.012 250);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.18 0.012 250);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.685 0.169 217);
-  --primary-foreground: oklch(0.13 0.012 250);
-  --secondary: oklch(0.24 0.01 250);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.24 0.01 250);
-  --muted-foreground: oklch(0.68 0 0);
-  --accent: oklch(0.24 0.015 250);
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.685 0.169 217);
-  --chart-1: oklch(0.685 0.169 217);
-  --chart-2: oklch(0.585 0.188 277);
-  --chart-3: oklch(0.72 0.17 162);
-  --chart-4: oklch(0.78 0.16 80);
-  --chart-5: oklch(0.65 0.2 16);
-}
+/* .dark는 :root와 동일하므로 제거 — :root가 dark 기본값 역할 */
 
 .light {
   --background: oklch(0.99 0 0);
@@ -129,9 +105,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', sans-serif;
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-x: hidden;
   }
 }
 

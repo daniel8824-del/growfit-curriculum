@@ -1,5 +1,3 @@
-import { cn } from '@/lib/utils'
-
 interface SlideProgressProps {
   current: number
   total: number

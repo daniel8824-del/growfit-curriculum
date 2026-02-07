@@ -13,7 +13,7 @@ export interface Session {
   description: string
   segments: SessionSegment[]
   checkpoint: GrowFitCheckpoint
-  slideCount: number
+  slideCount?: number
   learningOutcomes: string[]
   prerequisites: number[]
   competencyLayer: CompetencyLayer

@@ -5,17 +5,7 @@ import { Clock, Users, ArrowRight } from 'lucide-react'
 import { scenarios } from '@/data/scenarios'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-
-const levelLabels: Record<string, string> = {
-  beginner: '초급',
-  intermediate: '중급',
-  advanced: '고급',
-}
-const levelColors: Record<string, string> = {
-  beginner: 'bg-emerald-500/10 text-emerald-500',
-  intermediate: 'bg-amber-500/10 text-amber-500',
-  advanced: 'bg-red-500/10 text-red-500',
-}
+import { levelLabels, levelColors } from '@/lib/scenario-utils'
 
 export function ScenarioCarousel() {
   const ref = useRef(null)

@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Fuse from 'fuse.js'
 import { Search } from 'lucide-react'
-import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { sessions } from '@/data/sessions'
 import { scenarios } from '@/data/scenarios'
 import { cn } from '@/lib/utils'
@@ -55,7 +55,7 @@ interface SearchDialogProps {
 export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
   const [query, setQuery] = useState('')
   const navigate = useNavigate()
-  const items = useMemo(buildSearchItems, [])
+  const items = useMemo(() => buildSearchItems(), [])
   const fuse = useMemo(
     () => new Fuse(items, { keys: ['title', 'description', 'meta'], threshold: 0.4 }),
     [items]
@@ -85,6 +85,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent showCloseButton={false} className="sm:max-w-lg p-0 gap-0">
+        <DialogTitle className="sr-only">검색</DialogTitle>
         <div className="flex items-center gap-3 border-b px-4 py-3">
           <Search className="h-4 w-4 text-muted-foreground shrink-0" />
           <input
@@ -92,6 +93,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="차시, 시나리오, GrowFit 기능 검색..."
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+            aria-label="검색어 입력"
             autoFocus
           />
           <kbd className="hidden sm:inline-flex h-5 items-center rounded border px-1.5 text-[10px] text-muted-foreground">
@@ -99,10 +101,12 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
           </kbd>
         </div>
         {results.length > 0 && (
-          <div className="max-h-80 overflow-y-auto p-2">
+          <div className="max-h-80 overflow-y-auto p-2" role="listbox" aria-label="검색 결과">
             {results.map(({ item }, i) => (
               <button
                 key={i}
+                role="option"
+                aria-selected={false}
                 onClick={() => handleSelect(item.href)}
                 className={cn(
                   'flex w-full flex-col items-start gap-1 rounded-md px-3 py-2 text-left text-sm transition-colors hover:bg-accent',

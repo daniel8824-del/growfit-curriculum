@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import { GraduationCap, FolderOpen, Share2, BarChart3, Users, BookOpen, Settings, CheckCircle2 } from 'lucide-react'
+import { GraduationCap, FolderOpen, Share2, BarChart3, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { sessions } from '@/data/sessions'
+import { getSessionSlides } from '@/data/slides'
 
 const steps = [
   {
@@ -111,7 +112,7 @@ export default function InstructorPage() {
             >
               <span className="text-xs text-muted-foreground">차시 {s.id}</span>
               <p className="font-medium mt-0.5">{s.title}</p>
-              <p className="text-xs text-growfit mt-1">{s.slideCount}장 슬라이드</p>
+              <p className="text-xs text-growfit mt-1">{getSessionSlides(s.id).length}장 슬라이드</p>
             </Link>
           ))}
         </div>

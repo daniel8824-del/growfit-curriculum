@@ -38,7 +38,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-8 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+          className="mt-6 text-[1.75rem] font-bold tracking-tight sm:mt-8 sm:text-5xl lg:text-6xl leading-tight"
         >
           <span className="bg-gradient-to-r from-growfit to-growfit-accent bg-clip-text text-transparent">
             40시간
@@ -53,7 +53,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl mx-auto leading-relaxed"
+          className="mt-4 text-base text-muted-foreground sm:mt-6 sm:text-xl max-w-2xl mx-auto leading-relaxed"
         >
           비교하고, 프롬프트하고, RAG 구축하고, 에이전트를 만들기까지
           <br className="hidden sm:block" />
@@ -79,8 +79,8 @@ export function HeroSection() {
                 <ArrowRight className="h-3.5 w-3.5 text-muted-foreground/50" />
               )}
               <span
-                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-white"
-                style={{ backgroundColor: layer.color }}
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium"
+                style={{ backgroundColor: layer.color, color: layer.color === '#F59E0B' ? '#1a1a2e' : '#fff' }}
               >
                 {layer.label}
                 <span className="opacity-70">({layer.sessions}차시)</span>
@@ -94,7 +94,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3"
+          className="mt-8 grid grid-cols-4 gap-2 max-w-[200px] mx-auto sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 sm:max-w-none"
         >
           {sessionIcons.map((Icon, i) => (
             <motion.div
@@ -102,7 +102,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5 + i * 0.06, type: 'spring', stiffness: 300, damping: 20 }}
-              className="flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-xl border bg-card/80 backdrop-blur-sm shadow-sm"
+              className="flex h-10 w-10 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-xl border bg-card/80 backdrop-blur-sm shadow-sm mx-auto"
               style={{ borderColor: `${sessionColors[i]}30` }}
             >
               <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" style={{ color: sessionColors[i] }} />
@@ -115,16 +115,16 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center sm:gap-4"
         >
-          <Link to="/curriculum">
-            <Button size="lg" className="bg-growfit hover:bg-growfit/90 text-white gap-2">
+          <Link to="/curriculum" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-growfit hover:bg-growfit/90 text-white gap-2">
               커리큘럼 보기
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
-          <a href="https://growfit.onecloud.kr" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" variant="outline" className="gap-2">
+          <a href="https://growfit.onecloud.kr" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
               GrowFit 시작하기
             </Button>
           </a>

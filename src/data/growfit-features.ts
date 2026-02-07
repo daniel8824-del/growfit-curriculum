@@ -66,6 +66,14 @@ export const growfitFeatures: GrowFitFeature[] = [
     sessions: [6, 8],
   },
   {
+    id: 'kb-advanced-settings',
+    name: '고급 설정',
+    category: 'practice',
+    description: '지식베이스의 chunk_size, overlap, Top-K 등 RAG 파이프라인 파라미터를 세밀하게 조절합니다.',
+    icon: 'Settings',
+    sessions: [6],
+  },
+  {
     id: 'rag-comparison',
     name: 'RAG 비교 모드',
     category: 'practice',

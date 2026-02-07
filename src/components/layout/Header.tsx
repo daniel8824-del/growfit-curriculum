@@ -22,8 +22,8 @@ export function Header({ onSearchOpen }: HeaderProps) {
   const location = useLocation()
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-xl" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6">
         <Link to="/" className="flex items-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-growfit text-white">
             <GraduationCap className="h-5 w-5" />
@@ -40,7 +40,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
               to={link.href}
               className={cn(
                 'rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground',
-                location.pathname === link.href
+                (link.href === '/' ? location.pathname === '/' : location.pathname.startsWith(link.href))
                   ? 'text-foreground bg-accent'
                   : 'text-muted-foreground'
               )}
@@ -52,7 +52,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
 
         <div className="flex items-center gap-1">
           {onSearchOpen && (
-            <Button variant="ghost" size="icon" onClick={onSearchOpen}>
+            <Button variant="ghost" size="icon" onClick={onSearchOpen} aria-label="검색 열기">
               <Search className="h-5 w-5" />
             </Button>
           )}
@@ -72,6 +72,8 @@ export function Header({ onSearchOpen }: HeaderProps) {
             size="icon"
             className="md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? '메뉴 닫기' : '메뉴 열기'}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
@@ -94,7 +96,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     'rounded-md px-3 py-2.5 text-sm font-medium transition-colors',
-                    location.pathname === link.href
+                    (link.href === '/' ? location.pathname === '/' : location.pathname.startsWith(link.href))
                       ? 'bg-accent text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
                   )}

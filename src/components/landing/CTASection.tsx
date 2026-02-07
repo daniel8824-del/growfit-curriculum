@@ -24,15 +24,15 @@ export function CTASection() {
             <br className="hidden sm:block" />
             GrowFit이 교육 준비부터 운영, 평가까지 도와드립니다.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link to="/curriculum">
-              <Button size="lg" className="bg-growfit hover:bg-growfit/90 text-white gap-2">
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+            <Link to="/curriculum" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto bg-growfit hover:bg-growfit/90 text-white gap-2">
                 커리큘럼 살펴보기
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <a href="https://growfit.onecloud.kr" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="gap-2">
+            <a href="https://growfit.onecloud.kr" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
                 GrowFit 무료 체험
                 <ExternalLink className="h-4 w-4" />
               </Button>
